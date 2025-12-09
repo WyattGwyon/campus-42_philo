@@ -44,7 +44,7 @@ int main(void)
 	seconds = end.tv_sec - start.tv_sec;
 	microseconds = end.tv_usec - start.tv_usec;
 	elapsed = seconds + microseconds * 1e-6;
-	printf("Expected sleep duration 5.0 seconds\n");
+	printf("Expected sleep duration 0.5 seconds\n");
 	printf("Actual custom sleep duration %f seconds\n", elapsed);
 	gettimeofday(&start, NULL);
 	usleep(500000);
