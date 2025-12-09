@@ -23,7 +23,7 @@ void precise_usleep(long usec)
 		gettimeofday(&current, NULL);
 		elapsed = get_elapsed_time_microseconds(start, current);
 		rem = usec - elapsed;
-		if (rem < 1000)
+		if (rem > 1000)
 			usleep(rem / 2);
 	} while (elapsed < usec);
 
