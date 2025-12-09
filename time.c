@@ -23,7 +23,7 @@ void precise_usleep(long usec)
 		gettimeofday(&current, NULL);
 		elapsed = get_elapsed_time_microseconds(start, current);
 		rem = usec - elapsed;
-		if (rem < 1000)
+		if (rem > 1000)
 			usleep(rem / 2);
 	} while (elapsed < usec);
 
@@ -44,7 +44,7 @@ int main(void)
 	seconds = end.tv_sec - start.tv_sec;
 	microseconds = end.tv_usec - start.tv_usec;
 	elapsed = seconds + microseconds * 1e-6;
-	printf("Expected sleep duration 5.0 seconds\n");
+	printf("Expected sleep duration 0.5 seconds\n");
 	printf("Actual custom sleep duration %f seconds\n", elapsed);
 	gettimeofday(&start, NULL);
 	usleep(500000);
