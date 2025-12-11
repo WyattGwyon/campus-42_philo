@@ -6,7 +6,7 @@
 #    By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/10 18:40:58 by clouden           #+#    #+#              #
-#    Updated: 2025/12/10 19:48:53 by clouden          ###   ########.fr        #
+#    Updated: 2025/12/11 12:17:10 by clouden          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,11 @@ OBJS	= $(SRCS:%.c=%.o)
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	@echo "(BLUE)[PHILO]$(RESET) $< -> $@"
+	@printf "$(GREEN)[PHILO]$(RESET) %25s -> %s\n" $< $@
 	@$(CC) $(CFLAGS) $^ -o $@
 
 %.o: %.c
-	@printf "$(BLUE)[COMPILING]$(RESET) %021s -> %s\n" $< $@
+	@printf "$(BLUE)[COMPILING]$(RESET) %21s -> %s\n" $< $@
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
